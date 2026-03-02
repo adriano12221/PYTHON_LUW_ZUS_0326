@@ -60,4 +60,17 @@ def compose(f, g):
 
 final_price = compose(add_tax, apply_discount)
 
-print(final_price(100)) 
+print(final_price(100))
+
+#ex5 - funkcja jako warunek
+#finteligentny filtr
+
+def make_filter(threshold):
+    def filter_func(value):
+        return value > threshold
+    return filter_func
+
+high_filter = make_filter(100)
+data = [50,120,80,200]
+filtered_data = list(filter(high_filter, data))
+print(filtered_data)
