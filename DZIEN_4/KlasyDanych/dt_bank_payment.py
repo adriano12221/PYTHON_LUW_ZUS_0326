@@ -19,7 +19,7 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import datetime, UTC
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 import argparse
 import logging
@@ -136,12 +136,12 @@ class PaymentMethod(ABC):
 # =========================
 
 def _now_iso() -> str:
-    return datetime.utcnow().isoformat(timespec="seconds") + "Z"
+    return datetime.now(UTC).isoformat(timespec="seconds").replace("+00:00", "Z")
 
 
 def _make_payment_id(prefix: str) -> str:
     # prosta, czytelna "unikalność" (w realu: UUID)
-    return f"{prefix}-{datetime.utcnow().strftime('%Y%m%d%H%M%S%f')}"
+    return f"{prefix}-{datetime.now(UTC).strftime('%Y%m%d%H%M%S%f')}"
 
 
 @dataclass
