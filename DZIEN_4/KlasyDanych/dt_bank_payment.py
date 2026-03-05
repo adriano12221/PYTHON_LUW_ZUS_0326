@@ -404,7 +404,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
 
 
 def demo_payloads() -> List[Dict[str, Any]]:
-    # Celowo mieszamy dobre i błędne przypadki, żeby było co omawiać na szkoleniu.
+    # Celowo mieszamy dobre i błędne przypadki
     return [
         {"type": "card", "card_number": "1234 5678 1234 5678", "holder": "Anna", "amount": 250.0, "currency": "PLN", "cvv": "123"},
         {"type": "paypal", "email": "ewa@example.com", "amount": 120.0, "currency": "PLN"},
@@ -437,7 +437,7 @@ def main() -> int:
         logger.error("Batch aborted due to error: %s", e)
         return 1
 
-    # Zwięzłe podsumowanie "na koniec szkolenia"
+    
     logger.info("=== SUMMARY ===")
     for r in receipts:
         logger.info("OK | %s | %s | %.2f %s | %s", r.payment_id, r.method, r.amount, r.currency, r.status)
