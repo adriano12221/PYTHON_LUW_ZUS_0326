@@ -159,3 +159,19 @@ if __name__ == "__main__":
     print("\nTREŚĆ:")
     print(result["body"])
     print("\nWysłano:", result["sent"])
+
+
+#konfiguracja zmiennycj środowiskoych
+"""
+Powershell:
+$env:OPENAI_API_KEY="twoj_klucz"
+$env:SMTP_USERNAME="twoj_email@gmail.com"
+$env:SMTP_PASSWORD="twoje_haslo_aplikacji"
+python ai_email_agent.py
+
+bash:
+export OPENAI_API_KEY="twoj_klucz"
+export SMTP_USERNAME="twoj_email@gmail.com"
+export SMTP_PASSWORD="twoje_haslo_aplikacji"
+python ai_email_agent.py
+"""
